@@ -1,0 +1,44 @@
+{
+  "name": "demo-monorepo-micro-project",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "dev:vue-base": "pnpm -C ./packages/vue-base dev",
+    "dev:vue-demo1": "pnpm -C ./packages/vue-demo1 dev",
+    "dev:react-demo1": "pnpm -C ./packages/react-demo1 dev",
+    "lint:create": "eslint --init",
+    "lint": "eslint \"packages/**/*.{js,vue,ts}\" ",
+    "prettier-format": "prettier --config .prettierrc.js \"packages/**/*.{js,vue,ts}\" --write"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "element-plus": "^2.3.4",
+    "eslint-config-prettier": "^8.8.0",
+    "qiankun": "^2.10.8",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.3",
+    "@commitlint/config-conventional": "^17.6.3",
+    "@types/node": "^18.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.40.0",
+    "eslint-plugin-vue": "^9.13.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
+    "shelljs": "^0.8.4",
+    "typescript": "^5.0.2",
+    "vite-plugin-eslint": "^1.8.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "pnpm run lint",
+      "pnpm run prettier-format"
+    ]
+  },
+  "license": "ISC"
+}
